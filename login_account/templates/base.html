@@ -37,10 +37,19 @@
                 </ul>
               </li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="/login/register/">Register </a></li>
-              
+            {% if user.is_authenticated %}
+            <ul class = "nav navbar-nav">
+            <li><a href = "/login/logout_account">Logout</a></li>
+            <li><a href = "/login/profile">Profile</a></li>
+            <li><a href = "/login/profile/edit">Edit Profile</a></li>
+            
             </ul>
+            {% else %}
+            <ul class="nav navbar-nav navbar-right">
+            <li><a href = "/login/login_account">Login</a></li>
+              <li><a href="/login/register/">Register </a></li
+            </ul>
+            {% endif %}
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </nav>
