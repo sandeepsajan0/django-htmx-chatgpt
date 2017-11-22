@@ -22,8 +22,8 @@ def register(request):
 			return redirect('/login/login_account')
 	else:
 		form = RegistrationForm()
-		args = {'form': form}
-		return render (request,'login_account/reg_form.html',args)
+	args = {'form': form}
+	return render (request,'login_account/reg_form.html',args)
 @login_required
 def profile(request):
 	args = {'user': request.user}
@@ -40,4 +40,11 @@ def edit_profile(request):
 		form = EditProfileForm(instance = request.user)
 		args = {'form': form}
 		return render (request,'login_account/edit_profile.html',args)
+
+@login_required
+def public_page(request):
+	number=[1,2,3,4,5]
+	name="Sandeep Chauhan"
+	args = {'myname':name,'Number':number}
+	return render (request,'login_account/public_page.html', args)
 # Create your views here.

@@ -7,5 +7,6 @@ urlpatterns = [
     url(r'^logout_account/$', logout , {'template_name': 'login_account/logout.html'}),
     url(r'^register/$',views.register),
     url(r'^profile/$',views.profile),
-    url(r'^profile/edit/$',views.edit_profile)
+    url(r'^profile/edit/$',views.edit_profile),
+    url(r'^public_page/$',views.public_page)
 ]
