@@ -8,5 +8,7 @@ urlpatterns = [
     url(r'^register/$',views.register),
     url(r'^profile/$',views.profile),
     url(r'^profile/edit/$',views.edit_profile),
-    url(r'^public_page/$',views.public_page)
+    url(r'^public_page/$',views.BlogListView.as_view(), name='post_list'),
+    url(r'^post/(?P<pk>\d+)/$',views.BlogDetailView.as_view(), name='post_detail'),
+    url(r'^post/new/$',views.BlogCreateView.as_view(), name='post_new'),
 ]
