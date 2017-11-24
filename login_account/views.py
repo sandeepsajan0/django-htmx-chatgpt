@@ -7,6 +7,10 @@ from login_account.forms import RegistrationForm, EditProfileForm
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserChangeForm
 from django.contrib.auth.decorators import login_required
+from django.views.generic import ListView, DetailView
+from django.views.generic.edit import CreateView, UpdateView
+from .models import Post
+from django.urls import reverse_lazy
 
 def hello(request):
     number=[1,2,3,4,5]
@@ -47,4 +51,18 @@ def public_page(request):
 	name="Sandeep Chauhan"
 	args = {'myname':name,'Number':number}
 	return render (request,'login_account/public_page.html', args)
+
+
+class BlogListView(ListView):
+	model = Post
+	template_name = 'login_account/post_list.html'
+
+class BlogDetailView(DetailView):
+	model = Post
+	template_name = 'login_account/post_detail.html'
+	
+class BlogCreateView(CreateView):
+    model = Post
+    template_name = 'login_account/post_new.html'
+    fields = '__all__'
 # Create your views here.

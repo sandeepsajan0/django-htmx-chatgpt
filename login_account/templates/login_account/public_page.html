@@ -3,6 +3,13 @@
 <div class = "container">
 	<h1> Welcome</h1>
 	<h2> Post here</h2>
+
+	<form action = "/getname/" method = "post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="text" >
+    <input type = "submit" value = "post" />
+</form>
 </div>
 
 {% endblock %}
