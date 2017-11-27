@@ -4,6 +4,9 @@
   <div class="post-entry">
     <h2>{{ object.title }}</h2>
     <p>{{ object.text }}</p>
+
+    <p> by <b>{{object.author}}</b></p>
+
   </div>
 <p><a href="{% url 'post_edit' post.pk %}"><b>Edit Blog Post</b></a></p>
 <p><a href="{% url 'post_delete' post.pk %}"><b>Delete Blog Post</b></a></p
