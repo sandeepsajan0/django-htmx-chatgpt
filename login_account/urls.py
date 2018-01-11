@@ -10,7 +10,7 @@ urlpatterns = [
     url(r'^profile/edit/$',views.edit_profile),
     url(r'^public_page/$',views.BlogListView.as_view(), name='post_list'),
     url(r'^post/(?P<pk>\d+)/$',views.BlogDetailView.as_view(), name='post_detail'),
-    url(r'^post/new/$',views.BlogCreateView.as_view(), name='post_new'),
+    url(r'^post/new/$',views.news_poster, name='post_new'),
     url(r'^post/(?P<pk>\d+)/edit/$',views.BlogUpdateView.as_view(), name='post_edit'),
     url(r'^author/(?P<pk>\d+)/delete/$',views.BlogDeleteView.as_view(), name='post_delete'),
 ]

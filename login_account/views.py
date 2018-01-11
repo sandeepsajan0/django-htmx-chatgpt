@@ -9,7 +9,7 @@ from django.contrib.auth.forms import UserChangeForm
 from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Post
+from .models import NewsForm,Post
 from django.urls import reverse_lazy
 
 def hello(request):
@@ -60,11 +60,23 @@ class BlogListView(ListView):
 class BlogDetailView(DetailView):
 	model = Post
 	template_name = 'login_account/post_detail.html'
-	
-class BlogCreateView(CreateView):
-    model = Post
-    template_name = 'login_account/post_new.html'
-    fields = '__all__'
+@login_required	
+def news_poster(request):
+    if request.method == 'POST':
+        
+        form = NewsForm(request.POST)
+        if form.is_valid():
+            news_item = form.save(commit = False)
+    	    news_item.author = request.user  # User posting the form
+    	    news_item.save()
+        return redirect('/login/public_page/')
+    else:
+        form = NewsForm()
+    return render(request,'login_account/post_new.html', {'form': form})
+
+
+
+    
 
 class BlogUpdateView(UpdateView):
     model = Post
