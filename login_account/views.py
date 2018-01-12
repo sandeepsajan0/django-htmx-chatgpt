@@ -10,7 +10,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import NewsForm,Post
-from django.urls import reverse_lazy
+from django.core.urlresolvers import reverse_lazy
 
 def hello(request):
     number=[1,2,3,4,5]
@@ -67,8 +67,8 @@ def news_poster(request):
         form = NewsForm(request.POST)
         if form.is_valid():
             news_item = form.save(commit = False)
-    	    news_item.author = request.user  # User posting the form
-    	    news_item.save()
+            news_item.author = request.user  # User posting the form
+            news_item.save()
         return redirect('/login/public_page/')
     else:
         form = NewsForm()
