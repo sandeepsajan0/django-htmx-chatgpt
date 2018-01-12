@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
-from django.urls import reverse
+from django.core.urlresolvers import reverse
 from django.conf import settings
 from django.forms import ModelForm
 class UserProfile(models.Model):
@@ -28,7 +28,7 @@ class Post(models.Model):
 class NewsForm(ModelForm):
     class Meta:
         model = Post
-	fields = '__all__'
+        fields = '__all__'
 	
 		
 # Create your models here.
