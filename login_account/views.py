@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
 from login_account.forms import RegistrationForm, EditProfileForm
 from django.contrib.auth.models import User
@@ -57,9 +57,16 @@ class BlogListView(ListView):
 	model = Post
 	template_name = 'login_account/post_list.html'
 
-class BlogDetailView(DetailView):
-	model = Post
-	template_name = 'login_account/post_detail.html'
+
+def post_detail(request,*args, **kwargs):
+	blog_post = get_object_or_404(Post, pk=kwargs.get("pk"))
+	if blog_post.author == request.user:
+		
+		return render(request,'login_account/post_detail.html',{'post':blog_post})
+	else:
+		return redirect('/login/public_page/')
+		
+
 @login_required	
 def news_poster(request):
     if request.method == 'POST':
