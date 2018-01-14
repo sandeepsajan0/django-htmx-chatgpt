@@ -57,7 +57,7 @@ class BlogListView(ListView):
 	model = Post
 	template_name = 'login_account/post_list.html'
 
-
+@login_required
 def post_detail(request,*args, **kwargs):
 	blog_post = get_object_or_404(Post, pk=kwargs.get("pk"))
 	if blog_post.author == request.user:
