@@ -2,3 +2,7 @@ Django==1.11.7
 gunicorn
 psycopg2
 dj_database_url
+dj-static
+six
+static3
+wsgiref
