@@ -10,9 +10,8 @@ https://docs.djangoproject.com/en/1.11/howto/deployment/wsgi/
 
 
 import os
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "<PROJECT_NAME>.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "login.settings")
 
 from django.core.wsgi import get_wsgi_application
-from dj_static import Cling
 
-application = Cling(get_wsgi_application())
+application = get_wsgi_application()
