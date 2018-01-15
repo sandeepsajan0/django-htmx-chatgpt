@@ -26,7 +26,7 @@ SECRET_KEY = '16=e$ymxg^7o4ex4k_*#96^4*pku64c(g311q8n8fw2k+lo5y*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['social-networking-django-app.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
