@@ -24,9 +24,9 @@ STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 SECRET_KEY = '16=e$ymxg^7o4ex4k_*#96^4*pku64c(g311q8n8fw2k+lo5y*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://social-networking-django-app.herokuapp.com/']
 
 
 # Application definition
@@ -75,17 +75,22 @@ WSGI_APPLICATION = 'login.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-DATABASES = {'default': dj_database_url.config(default='postgres://localhost')}
+#DATABASES = {'default': dj_database_url.config(default='postgres://localhost')}
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2', 
-        'NAME': 'sandeep',  
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': "",  
-        'PORT': "", 
-    }
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql_psycopg2', 
+#        'NAME': 'sandeep',  
+#        'USER': '',
+#        'PASSWORD': '',
+#        'HOST': "",  
+#        'PORT': "", 
+#    }
 }
+
+
+import dj_database_url
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
