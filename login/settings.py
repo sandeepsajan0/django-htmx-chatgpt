@@ -27,8 +27,8 @@ SECRET_KEY = '16=e$ymxg^7o4ex4k_*#96^4*pku64c(g311q8n8fw2k+lo5y*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-#ALLOWED_HOSTS = [".herokuapp.com"]
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = [".herokuapp.com"]
+
 
 # Application definition
 
@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'login.wsgi.application'
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 import dj_database_url
 
-#DATABASES = {
+DATABASES = {
 #    'default': {
 #        'ENGINE': 'django.db.backends.postgresql_psycopg2', 
 #        'NAME': 'sandeep',  
@@ -86,30 +86,8 @@ import dj_database_url
 #        'HOST': "",  
 #        'PORT': "", 
 #    }
-#}
-#DATABASES['default'] =  dj_database_url.config()
-ON_HEROKU = os.environ.get('ON_HEROKU')
-HEROKU_SERVER = os.environ.get('HEROKU_SERVER')
-
-if ON_HEROKU:
-
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'postgresql',
-        }
-    }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2', 
-            'NAME': 'sandeep',  
-            'USER': '',
-            'PASSWORD': '',
-            'HOST': "",  
-            'PORT': "", 
-        }
-    }
+}
+DATABASES['default'] =  dj_database_url.config()
 
 
 
