@@ -1,8 +1,10 @@
 from django.conf.urls import url,include
 from . import views
 from django.contrib.auth.views import login,logout
+from django.views.generic import TemplateView
 urlpatterns = [
     url(r'^$', views.hello),
+    url(r'^home1/$', TemplateView.as_view(template_name='login_account/home1.html') ),
     url(r'^login_account/$', login , {'template_name': 'login_account/login1.html'}),
     url(r'^logout_account/$', logout , {'template_name': 'login_account/logout.html'}),
     url(r'^register/$',views.register),
