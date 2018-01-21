@@ -13,5 +13,7 @@ urlpatterns = [
     url(r'^post/new/$',views.news_poster, name='post_new'),
     url(r'^post/(?P<pk>\d+)/edit/$',views.BlogUpdateView.as_view(), name='post_edit'),
     url(r'^author/(?P<pk>\d+)/delete/$',views.BlogDeleteView.as_view(), name='post_delete'),
+     url(r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
+        views.activate, name='activate'),
 ]
 
