@@ -6,3 +6,4 @@ dj-static
 six
 static3
 wsgiref
+South==0.8.4
