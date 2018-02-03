@@ -9,7 +9,7 @@ from django.contrib.auth.forms import UserChangeForm
 from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import NewsForm,Posts_s
+from .models import NewsForm,Post
 from django.core.urlresolvers import reverse_lazy
 from django.http import HttpResponse
 from django.core.mail import EmailMessage
@@ -92,12 +92,12 @@ def public_page(request):
 
 
 class BlogListView(ListView):
-	model = Posts_s
+	model = Post
 	template_name = 'login_account/post_list.html'
 
 @login_required
 def post_detail(request,*args, **kwargs):
-	blog_post = get_object_or_404(Posts_s, pk=kwargs.get("pk"))
+	blog_post = get_object_or_404(Post, pk=kwargs.get("pk"))
 	if blog_post.author == request.user:
 		
 		return render(request,'login_account/post_detail.html',{'post':blog_post})
@@ -124,12 +124,12 @@ def news_poster(request):
     
 
 class BlogUpdateView(UpdateView):
-    model = Posts_s
+    model = Post
     fields = ['title', 'text']
     template_name = 'login_account/post_edit.html'
 
 class BlogDeleteView(DeleteView):
-    model = Posts_s
+    model = Post
     template_name = 'login_account/post_delete.html'
     success_url = reverse_lazy('post_list') 
 # Create your views here.
