@@ -89,7 +89,9 @@ DATABASES = {
 }
 DATABASES['default'] =  dj_database_url.config()
 
-
+SOUTH_DATABASE_ADAPTERS = {
+    'default': "south.db. postgresql_psycopg2"
+}
 
 
 
