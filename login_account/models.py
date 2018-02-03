@@ -15,7 +15,7 @@ class UserProfile(models.Model):
 	website = models.URLField(default='')
 	phone = models.IntegerField(default= 0)
 	
-class Post(models.Model):
+class Posts(models.Model):
 	author = models.ForeignKey(User,default =1,on_delete=models.CASCADE)
 	title = models.CharField(max_length=200)
 	text = models.TextField()
@@ -29,7 +29,7 @@ class Post(models.Model):
 
 class NewsForm(ModelForm):
     class Meta:
-        model = Post
+        model = Posts
         fields = '__all__'
 	
 		
