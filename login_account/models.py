@@ -7,6 +7,7 @@ from django.db.models.signals import post_save
 from django.core.urlresolvers import reverse
 from django.conf import settings
 from django.forms import ModelForm
+from django.utils import timezone
 class UserProfile(models.Model):
 	user = models.OneToOneField(User)
 	description = models.CharField(max_length = 100, default ='')
@@ -18,12 +19,13 @@ class Post(models.Model):
 	author = models.ForeignKey(User,default =1,on_delete=models.CASCADE)
 	title = models.CharField(max_length=200)
 	text = models.TextField()
+	date_added = models.DateTimeField('date published', default=timezone.now)
 
 	def get_absolute_url(self):
 		return reverse('post_list')
 
 	def __unicode__(self):
-        	return u'%s %s %s' % (self.author, self.title, self.text)
+        	return u'%s %s %s %s' % (self.author, self.title, self.text, self.date_added)
 
 class NewsForm(ModelForm):
     class Meta:
