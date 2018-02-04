@@ -34,7 +34,7 @@ ALLOWED_HOSTS = [".herokuapp.com"]
 
 INSTALLED_APPS = [
     'login_account',
-    'south',
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -90,9 +90,9 @@ DATABASES = {
 }
 DATABASES['default'] =  dj_database_url.config()
 
-SOUTH_DATABASE_ADAPTERS = {
-    'default': "south.db.postgresql_psycopg2"
-}
+#SOUTH_DATABASE_ADAPTERS = {
+#    'default': "south.db.postgresql_psycopg2"
+#}
 
 
 
