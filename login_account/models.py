@@ -8,6 +8,7 @@ from django.core.urlresolvers import reverse
 from django.conf import settings
 from django.forms import ModelForm
 from django.utils import timezone
+
 class UserProfile(models.Model):
 	user = models.OneToOneField(User)
 	description = models.CharField(max_length = 100, default ='')
