@@ -10,7 +10,7 @@ urlpatterns = [
     url(r'^register/$',views.register),
     url(r'^profile/$',views.profile),
     url(r'^profile/edit/$',views.edit_profile),
-    url(r'^password/$', password_change, {'template_name': 'login_account/change_password.html'}),
+    url(r'^profile/password/$', password_change, {'template_name': 'login_account/change_password.html'}),
     url(r'^password-change/$', password_change_done, {'template_name': 'login_account/password_change_done.html'},name='password_change_done'),
     url(r'^public_page/$',views.BlogListView.as_view(), name='post_list'),
     url(r'^post/(?P<pk>\d+)/$',views.post_detail, name='post_detail'),
