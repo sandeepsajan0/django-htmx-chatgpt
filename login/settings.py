@@ -78,21 +78,10 @@ WSGI_APPLICATION = 'login.wsgi.application'
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 import dj_database_url
 
-DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.postgresql_psycopg2', 
-#        'NAME': 'sandeep',  
-#        'USER': '',
-#        'PASSWORD': '',
-#        'HOST': "",  
-#        'PORT': "", 
-#    }
-}
+
 DATABASES['default'] =  dj_database_url.config()
 
-#SOUTH_DATABASE_ADAPTERS = {
-#    'default': "south.db.postgresql_psycopg2"
-#}
+
 
 
 
@@ -138,7 +127,7 @@ LOGIN_REDIRECT_URL = '/login/profile'
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'sandeepsajan0@gmail.com'
-EMAIL_HOST_PASSWORD = 'asandeep@123'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
 EMAIL_PORT = 587
 
