@@ -78,21 +78,10 @@ WSGI_APPLICATION = 'login.wsgi.application'
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 import dj_database_url
 
-DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.postgresql_psycopg2', 
-#        'NAME': 'sandeep',  
-#        'USER': '',
-#        'PASSWORD': '',
-#        'HOST': "",  
-#        'PORT': "", 
-#    }
-}
+
 DATABASES['default'] =  dj_database_url.config()
 
-#SOUTH_DATABASE_ADAPTERS = {
-#    'default': "south.db.postgresql_psycopg2"
-#}
+
 
 
 

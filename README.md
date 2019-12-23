@@ -26,5 +26,6 @@ To migrate the database,
     python manage.py makemigration
     python manage.py migrate
     
-For demo, App is live on "https://social-networking-django-app.herokuapp.com/"
 
+
+For demo, App is live on "http://socialnetworkingsite.herokuapp.com/login/"
