@@ -138,7 +138,7 @@ LOGIN_REDIRECT_URL = '/login/profile'
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'sachauhan149@gmail.com'
-EMAIL_HOST_PASSWORD = 'sand@123'
+EMAIL_HOST_USER = os.environ['EMAIL']
+EMAIL_HOST_PASSWORD = os.environ['PASSWORD']
 EMAIL_PORT = 587
 
