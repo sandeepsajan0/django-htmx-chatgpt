@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.contrib import admin
-from login_account.models import UserProfile
+from .models import UserProfile, Post
 
-admin.site.register(UserProfile)
+admin.register(UserProfile, Post)(admin.ModelAdmin)
 # Register your models here.
