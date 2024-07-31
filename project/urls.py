@@ -16,9 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from htmx_chatapp.views import index
+from htmx_chatapp.views import index, get_messages
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index, name="index_page")
+    path('', index, name="index_page"),
+    path('messages/', get_messages, name="messages")
 ]

@@ -1,3 +1,8 @@
 Django==5.0.7
 psycopg2==2.9.9
 django-htmx==1.18.0
+openai==1.37.1
+g4f=0.3.2.2
+browser_cookie3==0.19.1
+curl_cffi==0.7.1
+environs==11.0.0

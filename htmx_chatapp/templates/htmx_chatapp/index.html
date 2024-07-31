@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+{% load static %}
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -76,33 +77,19 @@
         <div class="card-header bg-primary text-white">Chat</div>
         <div class="card-body messages-box">
 
-          <ul class="list-unstyled messages-list">
-
-            <li class="message received">
-              <div class="message-text">
-                <div class="message-sender">
-                  <b>AI Chatbot</b>
-                </div>
-                <div class="message-content">
-                  Hi, I am your AI Chatbot, you can ask me anything.
-                </div>
-              </div>
-            </li>
+          Hi, I am your AI Chatbot, you can ask me anything.
+          <ul class="list-unstyled messages-list" id="message_list">
           </ul>
 
         </div>
         <br><br>
         <br><br>
         <br><br>
-          <form class="message-form">
-        {%csrf_token%}
-        <div class="input-group">
-          <input type="text" class="form-control message-input" placeholder="Type your message...">
-          <div class="input-group-append">
-            <button type="submit" class="btn btn-primary btn-send">Send</button>
-          </div>
-        </div>
-      </form>
+        <form class="message-form" hx-post="{% url 'messages' %}" hx-target="#message_list">
+          {% csrf_token %}
+            <input type="text" class="form-control message-input" name="question" required>
+            <input type="submit" class="btn btn-primary btn-send" value="Send">
+        </form>
       </div>
       <p style="margin-inline:auto;">
           ChatGPT can make mistakes. Check important info.
