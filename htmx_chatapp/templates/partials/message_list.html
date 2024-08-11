@@ -1,8 +1,9 @@
-{% for message in messages %}
-    <li class="message received">
-      <div class="message-text">
-          <div>{{ message.question }}</div>
-          <div>{{ message.answer }}</div>
-      </div>
-    </li>
-{% endfor %}
+{% load chat_tags %}
+<div class="message">
+  <li class="sent">
+    {{ question }}
+  </li>
+  <li class="received">
+    {{ answer|markdown_html|safe }}
+  </li>
+</div>

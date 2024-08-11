@@ -6,3 +6,4 @@ g4f=0.3.2.2
 browser_cookie3==0.19.1
 curl_cffi==0.7.1
 environs==11.0.0
+markdown==3.6
